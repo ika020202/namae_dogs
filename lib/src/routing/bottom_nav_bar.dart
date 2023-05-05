@@ -23,7 +23,7 @@ class BottomNavBar extends HookWidget {
       if (index == 0) {
         context.goNamed(AppRoute.home.name);
       } else if (index == 1) {
-        context.goNamed(AppRoute.your.name);
+        context.goNamed(AppRoute.search.name);
       }
     }
 

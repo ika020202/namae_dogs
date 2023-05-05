@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:namae_dogs/src/common_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:namae_dogs/src/features/home/presentation/home_screen.dart';
+import 'package:namae_dogs/src/features/persons/presentation/home_screen.dart';
 import 'package:namae_dogs/src/features/onboarding/onboarding_screen.dart';
 import 'package:namae_dogs/src/features/your/presentation/your_screen.dart';
 import 'package:namae_dogs/src/routing/not_found_screen.dart';
@@ -12,7 +12,7 @@ part 'app_router.g.dart';
 
 enum AppRoute {
   home,
-  your,
+  search,
   onboarding,
 }
 
@@ -53,8 +53,8 @@ GoRouter goRouter(GoRouterRef ref) {
           ),
           // Shopping Cart
           GoRoute(
-            path: '/yourPage',
-            name: AppRoute.your.name,
+            path: '/search',
+            name: AppRoute.search.name,
             pageBuilder: (context, state) => NoTransitionPage(
               key: state.pageKey,
               child: const YourScreen(),

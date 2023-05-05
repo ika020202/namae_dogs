@@ -8,3 +8,7 @@ l10n:
 .PHONY: watch
 watch:
 	flutter pub run build_runner watch --delete-conflicting-outputs
+
+.PHONY: br
+br:
+	flutter pub run build_runner build --delete-conflicting-outputs
