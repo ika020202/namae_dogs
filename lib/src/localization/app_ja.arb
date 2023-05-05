@@ -1,0 +1,9 @@
+{
+    "@@locale": "ja",
+    "language": "言語",
+    "appTitle": "namaeDog",
+    "goHome": "ホームに戻る",
+    "error404": "404 - ページが見つかりませんでした",
+    "home": "ホーム",
+    "yourPage": "あなたのページ"
+}

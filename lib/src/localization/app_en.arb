@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "language": "Language",
+  "appTitle": "namaeDog",
+  "goHome": "Go Home",
+  "error404": "404 - Page not found!",
+  "home": "Home",
+  "yourPage": "Your Page"
+}
