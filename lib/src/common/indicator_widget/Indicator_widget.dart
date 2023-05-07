@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:namae_dogs/src/features/onboarding/pageIndicator/indicator_provider.dart';
+import 'package:namae_dogs/src/common/indicator_widget/indicator_provider.dart';
 
 // IndicatorProviderで状態管理しています
 class IndicatorWidget extends ConsumerWidget {

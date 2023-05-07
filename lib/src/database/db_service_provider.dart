@@ -1,21 +1,9 @@
 import 'package:isar/isar.dart';
-import 'package:namae_dogs/src/features/persons/data/Person.dart';
+import 'package:namae_dogs/src/features/home/data/Person.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-part 'common_providers.g.dart';
-
-final sharedPreferencesProvider =
-    Provider<SharedPreferences>((_) => throw UnimplementedError());
-
-@Riverpod(keepAlive: true)
-bool showOnBoarding(ShowOnBoardingRef ref) {
-  final prefs = ref.watch(sharedPreferencesProvider);
-  // return prefs.getBool('showOnBoarding') ?? true;
-  // ! デバッグのためにfalseにしている
-  return prefs.getBool('showOnBoarding') ?? false;
-}
+part 'db_service_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class DBService extends _$DBService {

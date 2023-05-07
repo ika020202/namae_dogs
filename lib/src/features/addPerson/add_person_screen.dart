@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:namae_dogs/src/common/indicator_widget/Indicator_widget.dart';
 import 'package:namae_dogs/src/common/indicator_widget/indicator_provider.dart';
 
-class OnBoardingScreen extends ConsumerWidget {
-  const OnBoardingScreen({super.key});
+class AddPersonScreen extends ConsumerWidget {
+  const AddPersonScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
