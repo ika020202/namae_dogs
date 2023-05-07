@@ -4,9 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:namae_dogs/src/localization/app_localizations_context.dart';
 import 'package:namae_dogs/src/routing/app_router.dart';
 
-// This is a temporary implementation
-// TODO: Implement a better solution once this PR is merged:
-// https://github.com/flutter/packages/pull/2650
 class BottomNavBar extends HookWidget {
   const BottomNavBar({Key? key, required this.child}) : super(key: key);
   final Widget child;
@@ -20,10 +17,14 @@ class BottomNavBar extends HookWidget {
         return;
       }
       selectedIndex.value = index;
-      if (index == 0) {
-        context.goNamed(AppRoute.home.name);
-      } else if (index == 1) {
-        context.goNamed(AppRoute.search.name);
+      // Change Switch State from If
+      switch (index) {
+        case 0:
+          context.goNamed(AppRoute.home.name);
+          break;
+        case 1:
+          context.goNamed(AppRoute.search.name);
+          break;
       }
     }
 
@@ -41,7 +42,7 @@ class BottomNavBar extends HookWidget {
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.note_rounded),
-            label: context.loc.yourPage,
+            label: context.loc.searchPage,
           ),
         ],
         onTap: (index) => tap(context, index),
