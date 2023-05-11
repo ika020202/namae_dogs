@@ -8,6 +8,7 @@ part 'Person.g.dart';
 class Person {
   Person({
     required this.avator,
+    required this.categorName,
     required this.name,
     required this.like,
     required this.firstDescription,
@@ -15,9 +16,15 @@ class Person {
   }) : id = Isar.autoIncrement;
 
   final Id id;
+  /* MEMO: IsarLink<Category>にしていない理由は色々あります。
+  / ①Link元&先のIdを非Finalにすべきという公式推奨があるが、ImmutableProgrammingとCopyWithの観点から避けたい為。
+  / ②Requiredに出来ないので初期化時に注意する必要がある。どちらにせよ初期化時にCategoryと比較を行う必要があるので、Stringで持ってMatchしなければ未分類に投げる方がいい。
+  / (本当はCategoryNameをEnumで持ちたいが、カテゴリの種類はユーザーが指定するため初期化が困難。出来なくはないがEnumの持つ他範囲が絶対に選択されないという利点以上に欠点が多い。)
+  */
+  final String categorName;
   final Avator avator;
   final String name;
-  final int like;
+  final bool like;
   final String firstDescription;
   final String secondDescription;
 }

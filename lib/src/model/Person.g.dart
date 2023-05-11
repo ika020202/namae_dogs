@@ -9,9 +9,11 @@ part of 'Person.dart';
 abstract class _$PersonCWProxy {
   Person avator(Avator avator);
 
+  Person categorName(String categorName);
+
   Person name(String name);
 
-  Person like(int like);
+  Person like(bool like);
 
   Person firstDescription(String firstDescription);
 
@@ -25,8 +27,9 @@ abstract class _$PersonCWProxy {
   /// ````
   Person call({
     Avator? avator,
+    String? categorName,
     String? name,
-    int? like,
+    bool? like,
     String? firstDescription,
     String? secondDescription,
   });
@@ -42,10 +45,13 @@ class _$PersonCWProxyImpl implements _$PersonCWProxy {
   Person avator(Avator avator) => this(avator: avator);
 
   @override
+  Person categorName(String categorName) => this(categorName: categorName);
+
+  @override
   Person name(String name) => this(name: name);
 
   @override
-  Person like(int like) => this(like: like);
+  Person like(bool like) => this(like: like);
 
   @override
   Person firstDescription(String firstDescription) =>
@@ -65,6 +71,7 @@ class _$PersonCWProxyImpl implements _$PersonCWProxy {
   /// ````
   Person call({
     Object? avator = const $CopyWithPlaceholder(),
+    Object? categorName = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? like = const $CopyWithPlaceholder(),
     Object? firstDescription = const $CopyWithPlaceholder(),
@@ -75,6 +82,11 @@ class _$PersonCWProxyImpl implements _$PersonCWProxy {
           ? _value.avator
           // ignore: cast_nullable_to_non_nullable
           : avator as Avator,
+      categorName:
+          categorName == const $CopyWithPlaceholder() || categorName == null
+              ? _value.categorName
+              // ignore: cast_nullable_to_non_nullable
+              : categorName as String,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -82,7 +94,7 @@ class _$PersonCWProxyImpl implements _$PersonCWProxy {
       like: like == const $CopyWithPlaceholder() || like == null
           ? _value.like
           // ignore: cast_nullable_to_non_nullable
-          : like as int,
+          : like as bool,
       firstDescription: firstDescription == const $CopyWithPlaceholder() ||
               firstDescription == null
           ? _value.firstDescription
@@ -124,23 +136,28 @@ const PersonSchema = CollectionSchema(
       type: IsarType.object,
       target: r'Avator',
     ),
-    r'firstDescription': PropertySchema(
+    r'categorName': PropertySchema(
       id: 1,
+      name: r'categorName',
+      type: IsarType.string,
+    ),
+    r'firstDescription': PropertySchema(
+      id: 2,
       name: r'firstDescription',
       type: IsarType.string,
     ),
     r'like': PropertySchema(
-      id: 2,
+      id: 3,
       name: r'like',
-      type: IsarType.long,
+      type: IsarType.bool,
     ),
     r'name': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'name',
       type: IsarType.string,
     ),
     r'secondDescription': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'secondDescription',
       type: IsarType.string,
     )
@@ -167,6 +184,7 @@ int _personEstimateSize(
   var bytesCount = offsets.last;
   bytesCount += 3 +
       AvatorSchema.estimateSize(object.avator, allOffsets[Avator]!, allOffsets);
+  bytesCount += 3 + object.categorName.length * 3;
   bytesCount += 3 + object.firstDescription.length * 3;
   bytesCount += 3 + object.name.length * 3;
   bytesCount += 3 + object.secondDescription.length * 3;
@@ -185,10 +203,11 @@ void _personSerialize(
     AvatorSchema.serialize,
     object.avator,
   );
-  writer.writeString(offsets[1], object.firstDescription);
-  writer.writeLong(offsets[2], object.like);
-  writer.writeString(offsets[3], object.name);
-  writer.writeString(offsets[4], object.secondDescription);
+  writer.writeString(offsets[1], object.categorName);
+  writer.writeString(offsets[2], object.firstDescription);
+  writer.writeBool(offsets[3], object.like);
+  writer.writeString(offsets[4], object.name);
+  writer.writeString(offsets[5], object.secondDescription);
 }
 
 Person _personDeserialize(
@@ -204,10 +223,11 @@ Person _personDeserialize(
           allOffsets,
         ) ??
         Avator(),
-    firstDescription: reader.readString(offsets[1]),
-    like: reader.readLong(offsets[2]),
-    name: reader.readString(offsets[3]),
-    secondDescription: reader.readString(offsets[4]),
+    categorName: reader.readString(offsets[1]),
+    firstDescription: reader.readString(offsets[2]),
+    like: reader.readBool(offsets[3]),
+    name: reader.readString(offsets[4]),
+    secondDescription: reader.readString(offsets[5]),
   );
   return object;
 }
@@ -229,10 +249,12 @@ P _personDeserializeProp<P>(
     case 1:
       return (reader.readString(offset)) as P;
     case 2:
-      return (reader.readLong(offset)) as P;
-    case 3:
       return (reader.readString(offset)) as P;
+    case 3:
+      return (reader.readBool(offset)) as P;
     case 4:
+      return (reader.readString(offset)) as P;
+    case 5:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -325,6 +347,136 @@ extension PersonQueryWhere on QueryBuilder<Person, Person, QWhereClause> {
 }
 
 extension PersonQueryFilter on QueryBuilder<Person, Person, QFilterCondition> {
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'categorName',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'categorName',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'categorName',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'categorName',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterFilterCondition> categorNameIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'categorName',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<Person, Person, QAfterFilterCondition> firstDescriptionEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -511,54 +663,11 @@ extension PersonQueryFilter on QueryBuilder<Person, Person, QFilterCondition> {
     });
   }
 
-  QueryBuilder<Person, Person, QAfterFilterCondition> likeEqualTo(int value) {
+  QueryBuilder<Person, Person, QAfterFilterCondition> likeEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'like',
         value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Person, Person, QAfterFilterCondition> likeGreaterThan(
-    int value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'like',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Person, Person, QAfterFilterCondition> likeLessThan(
-    int value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'like',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Person, Person, QAfterFilterCondition> likeBetween(
-    int lower,
-    int upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'like',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
       ));
     });
   }
@@ -839,6 +948,18 @@ extension PersonQueryObject on QueryBuilder<Person, Person, QFilterCondition> {
 extension PersonQueryLinks on QueryBuilder<Person, Person, QFilterCondition> {}
 
 extension PersonQuerySortBy on QueryBuilder<Person, Person, QSortBy> {
+  QueryBuilder<Person, Person, QAfterSortBy> sortByCategorName() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'categorName', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterSortBy> sortByCategorNameDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'categorName', Sort.desc);
+    });
+  }
+
   QueryBuilder<Person, Person, QAfterSortBy> sortByFirstDescription() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstDescription', Sort.asc);
@@ -889,6 +1010,18 @@ extension PersonQuerySortBy on QueryBuilder<Person, Person, QSortBy> {
 }
 
 extension PersonQuerySortThenBy on QueryBuilder<Person, Person, QSortThenBy> {
+  QueryBuilder<Person, Person, QAfterSortBy> thenByCategorName() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'categorName', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Person, Person, QAfterSortBy> thenByCategorNameDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'categorName', Sort.desc);
+    });
+  }
+
   QueryBuilder<Person, Person, QAfterSortBy> thenByFirstDescription() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstDescription', Sort.asc);
@@ -951,6 +1084,13 @@ extension PersonQuerySortThenBy on QueryBuilder<Person, Person, QSortThenBy> {
 }
 
 extension PersonQueryWhereDistinct on QueryBuilder<Person, Person, QDistinct> {
+  QueryBuilder<Person, Person, QDistinct> distinctByCategorName(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'categorName', caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<Person, Person, QDistinct> distinctByFirstDescription(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -994,13 +1134,19 @@ extension PersonQueryProperty on QueryBuilder<Person, Person, QQueryProperty> {
     });
   }
 
+  QueryBuilder<Person, String, QQueryOperations> categorNameProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'categorName');
+    });
+  }
+
   QueryBuilder<Person, String, QQueryOperations> firstDescriptionProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'firstDescription');
     });
   }
 
-  QueryBuilder<Person, int, QQueryOperations> likeProperty() {
+  QueryBuilder<Person, bool, QQueryOperations> likeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'like');
     });

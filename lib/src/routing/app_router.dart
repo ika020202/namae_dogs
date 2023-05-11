@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:namae_dogs/src/database/onboarding_provider.dart';
+import 'package:namae_dogs/src/features/addPerson/add_person_screen.dart';
+import 'package:namae_dogs/src/features/persons_list/persons_list_screen.dart';
 import 'package:namae_dogs/src/features/search/presentation/search_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:namae_dogs/src/features/home/presentation/home_screen.dart';
@@ -14,6 +16,8 @@ enum AppRoute {
   home,
   search,
   onboarding,
+  addPerson,
+  personList,
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -34,6 +38,17 @@ GoRouter goRouter(GoRouterRef ref) {
         name: AppRoute.onboarding.name,
         builder: (context, state) => const OnBoardingScreen(),
       ),
+      GoRoute(
+        path: "/addPerson",
+        name: AppRoute.addPerson.name,
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            key: state.pageKey,
+            fullscreenDialog: true,
+            child: const AddPersonScreen(),
+          );
+        },
+      ),
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
         builder: (context, state, child) {
@@ -42,13 +57,22 @@ GoRouter goRouter(GoRouterRef ref) {
         routes: [
           // Products
           GoRoute(
-            path: '/home',
-            name: AppRoute.home.name,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: const HomeScreen(),
-            ),
-          ),
+              path: '/home',
+              name: AppRoute.home.name,
+              pageBuilder: (context, state) => NoTransitionPage(
+                    key: state.pageKey,
+                    child: const HomeScreen(),
+                  ),
+              routes: [
+                GoRoute(
+                    // TODO: Hardcoded pathを辞めたい。GoRouterBuilderを使えば解決するが動作が不安定っぽい
+                    path: 'personList/:categoryName',
+                    name: AppRoute.personList.name,
+                    builder: (context, state) {
+                      final categoryName = state.params["categoryName"];
+                      return PersonListScreen(categoryName: categoryName ?? "");
+                    }),
+              ]),
           // Shopping Cart
           GoRoute(
             path: '/search',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:namae_dogs/src/common/indicator_widget/Indicator_widget.dart';
 import 'package:namae_dogs/src/common/indicator_widget/indicator_provider.dart';
+import 'package:namae_dogs/src/localization/string_hardcoded.dart';
 
 class OnBoardingScreen extends ConsumerWidget {
   const OnBoardingScreen({super.key});
@@ -18,20 +19,20 @@ class OnBoardingScreen extends ConsumerWidget {
           children: [
             Container(
               color: Colors.red,
-              child: const Center(
-                child: Text('OnBoarding 1'),
+              child: Center(
+                child: Text('OnBoarding 1'.hardcoded),
               ),
             ),
             Container(
               color: Colors.indigo,
-              child: const Center(
-                child: Text('OnBoarding 2'),
+              child: Center(
+                child: Text('OnBoarding 2'.hardcoded),
               ),
             ),
             Container(
               color: Colors.green,
-              child: const Center(
-                child: Text('OnBoarding 3'),
+              child: Center(
+                child: Text('OnBoarding 3'.hardcoded),
               ),
             ),
           ],
@@ -45,7 +46,7 @@ class OnBoardingScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
-                child: const Text('Skip'),
+                child: Text('Skip'.hardcoded),
                 onPressed: () {},
               ),
               const Center(
@@ -55,7 +56,7 @@ class OnBoardingScreen extends ConsumerWidget {
                     nonActiveColor: Colors.grey),
               ),
               ElevatedButton(
-                child: const Text('Next'),
+                child: Text('Next'.hardcoded),
                 onPressed: () {},
               ),
             ],

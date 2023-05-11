@@ -33,7 +33,7 @@ class BottomNavBar extends HookWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.black,
         currentIndex: selectedIndex.value,
         items: [
           BottomNavigationBarItem(

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:namae_dogs/src/common/indicator_widget/Indicator_widget.dart';
 import 'package:namae_dogs/src/common/indicator_widget/indicator_provider.dart';
+import 'package:namae_dogs/src/features/addPerson/presentation/first_add_person_screen.dart';
+import 'package:namae_dogs/src/localization/string_hardcoded.dart';
+import 'package:namae_dogs/src/routing/app_router.dart';
 
 class AddPersonScreen extends ConsumerWidget {
   const AddPersonScreen({super.key});
@@ -16,22 +20,17 @@ class AddPersonScreen extends ConsumerWidget {
             ref.read(counterProvider.notifier).setIndex(index);
           },
           children: [
-            Container(
-              color: Colors.red,
-              child: const Center(
-                child: Text('OnBoarding 1'),
-              ),
-            ),
+            const FirstAddPersonScreen(),
             Container(
               color: Colors.indigo,
-              child: const Center(
-                child: Text('OnBoarding 2'),
+              child: Center(
+                child: Text('Add Person 2'.hardcoded),
               ),
             ),
             Container(
               color: Colors.green,
-              child: const Center(
-                child: Text('OnBoarding 3'),
+              child: Center(
+                child: Text('Add Person 3'.hardcoded),
               ),
             ),
           ],
@@ -40,25 +39,31 @@ class AddPersonScreen extends ConsumerWidget {
       bottomSheet: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           color: Colors.white,
-          height: 80,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                child: const Text('Skip'),
-                onPressed: () {},
-              ),
-              const Center(
-                child: IndicatorWidget(
-                    pageCount: 3,
-                    activeColor: Colors.blue,
-                    nonActiveColor: Colors.grey),
-              ),
-              ElevatedButton(
-                child: const Text('Next'),
-                onPressed: () {},
-              ),
-            ],
+          height: 100,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                  child: Text('戻る'.hardcoded),
+                  onPressed: () {
+                    context.goNamed(AppRoute.home.name);
+                  },
+                ),
+                const Center(
+                  child: IndicatorWidget(
+                      pageCount: 3,
+                      activeColor: Colors.blue,
+                      nonActiveColor: Colors.grey),
+                ),
+                ElevatedButton(
+                  child: Text('進む'.hardcoded),
+                  onPressed: () {
+                    // TODO: 設計自体を見直し中。
+                  },
+                ),
+              ],
+            ),
           )),
     );
   }

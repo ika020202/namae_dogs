@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:namae_dogs/src/features/home/data/Person.dart';
+import 'package:namae_dogs/src/model/Person.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
