@@ -25,6 +25,9 @@ class BottomNavBar extends HookWidget {
         case 1:
           context.goNamed(AppRoute.search.name);
           break;
+        case 2:
+          context.goNamed(AppRoute.settings.name);
+          break;
       }
     }
 
@@ -43,6 +46,10 @@ class BottomNavBar extends HookWidget {
           BottomNavigationBarItem(
             icon: const Icon(Icons.note_rounded),
             label: context.loc.searchPage,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.settings),
+            label: context.loc.settingsPage,
           ),
         ],
         onTap: (index) => tap(context, index),

@@ -4,6 +4,9 @@ import 'package:namae_dogs/src/database/onboarding_provider.dart';
 import 'package:namae_dogs/src/features/addPerson/add_person_screen.dart';
 import 'package:namae_dogs/src/features/persons_list/persons_list_screen.dart';
 import 'package:namae_dogs/src/features/search/presentation/search_screen.dart';
+import 'package:namae_dogs/src/features/settings_page/pages/this_app_info_screen.dart';
+import 'package:namae_dogs/src/features/settings_page/pages/update_Schedules.dart';
+import 'package:namae_dogs/src/features/settings_page/settings_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:namae_dogs/src/features/home/presentation/home_screen.dart';
 import 'package:namae_dogs/src/features/onboarding/onboarding_screen.dart';
@@ -18,6 +21,9 @@ enum AppRoute {
   onboarding,
   addPerson,
   personList,
+  settings,
+  thisAppInfo,
+  updateSchedules,
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -81,6 +87,26 @@ GoRouter goRouter(GoRouterRef ref) {
               key: state.pageKey,
               child: const SearchScreen(),
             ),
+          ),
+          GoRoute(
+            path: '/settings',
+            name: AppRoute.settings.name,
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: const SettingsScreen(),
+            ),
+            routes: [
+              GoRoute(
+                path: 'thisAppInfo',
+                name: AppRoute.thisAppInfo.name,
+                builder: (context, state) => const ThisAppInfoPage(),
+              ),
+              GoRoute(
+                path: 'updateSchedules',
+                name: AppRoute.updateSchedules.name,
+                builder: (context, state) => const UpdateSchedules(),
+              ),
+            ],
           ),
         ],
       ),

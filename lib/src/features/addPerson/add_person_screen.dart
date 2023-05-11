@@ -37,10 +37,10 @@ class AddPersonScreen extends ConsumerWidget {
         ),
       ),
       bottomSheet: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
           color: Colors.white,
-          height: 100,
-          child: Center(
+          height: 130,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -59,7 +59,7 @@ class AddPersonScreen extends ConsumerWidget {
                 ElevatedButton(
                   child: Text('進む'.hardcoded),
                   onPressed: () {
-                    // TODO: 設計自体を見直し中。
+                    // TODO: アイコンにしたい。
                   },
                 ),
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:namae_dogs/src/features/home/data/FakeData.dart';
+import 'package:namae_dogs/src/model/FakeData.dart';
 
 class PersonListScreen extends ConsumerWidget {
   const PersonListScreen({

@@ -5,5 +5,6 @@
     "goHome": "ホームに戻る",
     "error404": "404 - ページが見つかりませんでした",
     "home": "ホーム",
-    "searchPage": "検索ページ"
+    "searchPage": "検索ページ",
+    "settingsPage": "設定ページ"
 }
