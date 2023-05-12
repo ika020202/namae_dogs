@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:namae_dogs/src/common/indicator_widget/Indicator_widget.dart';
-import 'package:namae_dogs/src/common/indicator_widget/indicator_provider.dart';
-import 'package:namae_dogs/src/features/addPerson/presentation/first_add_person_screen.dart';
+import 'package:namae_dogs/src/common/namae_dog_text_field_widget.dart';
+import 'package:namae_dogs/src/constants/app_sizes.dart';
+import 'package:namae_dogs/src/features/addPerson/categories_widget.dart';
 import 'package:namae_dogs/src/localization/string_hardcoded.dart';
-import 'package:namae_dogs/src/routing/app_router.dart';
 
 class AddPersonScreen extends ConsumerWidget {
   const AddPersonScreen({super.key});
@@ -13,58 +11,30 @@ class AddPersonScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(bottom: 80),
-        child: PageView(
-          onPageChanged: (index) {
-            ref.read(counterProvider.notifier).setIndex(index);
-          },
-          children: [
-            const FirstAddPersonScreen(),
+      // -- Template AppBar
+      appBar: AppBar(
+        title: Text("このアプリについて".hardcoded),
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: <Widget>[
             Container(
-              color: Colors.indigo,
-              child: Center(
-                child: Text('Add Person 2'.hardcoded),
-              ),
+              width: 120,
+              height: 120,
+              color: Colors.red,
             ),
-            Container(
-              color: Colors.green,
-              child: Center(
-                child: Text('Add Person 3'.hardcoded),
-              ),
+            gapH16,
+            const NamaeDogTextField(
+              hint: "名前",
+              leadingIcon: Icons.person,
             ),
+            gapH16,
+            const Categories()
           ],
         ),
       ),
-      bottomSheet: Container(
-          color: Colors.white,
-          height: 130,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 10, 10, 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  child: Text('戻る'.hardcoded),
-                  onPressed: () {
-                    context.goNamed(AppRoute.home.name);
-                  },
-                ),
-                const Center(
-                  child: IndicatorWidget(
-                      pageCount: 3,
-                      activeColor: Colors.blue,
-                      nonActiveColor: Colors.grey),
-                ),
-                ElevatedButton(
-                  child: Text('進む'.hardcoded),
-                  onPressed: () {
-                    // TODO: アイコンにしたい。
-                  },
-                ),
-              ],
-            ),
-          )),
     );
   }
 }
