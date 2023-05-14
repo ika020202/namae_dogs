@@ -14,5 +14,7 @@ VSCodeの.settingsに
 を追記してください
 
 # 使用パッケージ
-Riverpod+GoRouter+Isar
+・Riverpod
+・GoRouter
+・Isar
 
