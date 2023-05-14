@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:namae_dogs/src/database/onboarding_provider.dart';
 import 'package:namae_dogs/src/features/addPerson/add_person_screen.dart';
 import 'package:namae_dogs/src/features/persons_list/persons_list_screen.dart';
 import 'package:namae_dogs/src/features/search/presentation/search_screen.dart';
@@ -32,7 +31,7 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   // TODO: OnBoarding実装のために用意。まだ使ってない
-  final showOnBoarding = ref.watch(showOnBoardingProvider);
+  // final showOnBoarding = ref.watch(showOnBoardingProvider);
 
   return GoRouter(
     initialLocation: '/home',
