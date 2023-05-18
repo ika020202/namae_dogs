@@ -1,4 +1,6 @@
 import 'package:isar/isar.dart';
+import 'package:namae_dogs/src/database/FakeData.dart';
+import 'package:namae_dogs/src/model/Genre.dart';
 import 'package:namae_dogs/src/model/Person.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -25,5 +27,10 @@ class DBService extends _$DBService {
 
   Future<void> deletePerson(int id) async {
     await isar.persons.delete(id);
+  }
+
+  List<Genre> getAllGenres() {
+    // TODO: とりあえずFake用
+    return FakeData.fakeGenres;
   }
 }

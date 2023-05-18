@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:namae_dogs/src/features/addPerson/add_person_screen.dart';
-import 'package:namae_dogs/src/features/persons_list/persons_list_screen.dart';
 import 'package:namae_dogs/src/features/search/presentation/search_screen.dart';
 import 'package:namae_dogs/src/features/settings_page/pages/this_app_info_screen.dart';
 import 'package:namae_dogs/src/features/settings_page/pages/update_Schedules.dart';
 import 'package:namae_dogs/src/features/settings_page/settings_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:namae_dogs/src/features/home/presentation/home_screen.dart';
+import 'package:namae_dogs/src/features/home/home_screen.dart';
 import 'package:namae_dogs/src/features/onboarding/onboarding_screen.dart';
 import 'package:namae_dogs/src/features/not_found/not_found_screen.dart';
 import 'package:namae_dogs/src/routing/bottom_nav_bar.dart';
@@ -19,7 +18,6 @@ enum AppRoute {
   search,
   onboarding,
   addPerson,
-  personList,
   settings,
   thisAppInfo,
   updateSchedules,
@@ -58,15 +56,6 @@ GoRouter goRouter(GoRouterRef ref) {
                     child: const HomeScreen(),
                   ),
               routes: [
-                GoRoute(
-                  // TODO: Hardcoded pathを辞めたい。GoRouterBuilderを使えば解決するが動作が不安定っぽい
-                  path: 'personList/:categoryName',
-                  name: AppRoute.personList.name,
-                  builder: (context, state) {
-                    final categoryName = state.params["categoryName"];
-                    return PersonListScreen(categoryName: categoryName ?? "");
-                  },
-                ),
                 GoRoute(
                   path: "addPerson",
                   name: AppRoute.addPerson.name,

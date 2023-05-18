@@ -33,26 +33,29 @@ class BottomNavBar extends HookWidget {
 
     return Scaffold(
       body: child,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.black,
-        currentIndex: selectedIndex.value,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: context.loc.home,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.note_rounded),
-            label: context.loc.searchPage,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.settings),
-            label: context.loc.settingsPage,
-          ),
-        ],
-        onTap: (index) => tap(context, index),
+      bottomNavigationBar: SizedBox(
+        child: BottomNavigationBar(
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.black,
+          currentIndex: selectedIndex.value,
+          items: [
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              label: context.loc.home,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.search),
+              label: context.loc.searchPage,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.settings),
+              label: context.loc.settingsPage,
+            ),
+          ],
+          onTap: (index) => tap(context, index),
+        ),
       ),
     );
   }

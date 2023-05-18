@@ -51,7 +51,7 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
-    - assets/images/category_icons/
+    - assets/images/genre_icons/
 
 flutter_icons:
   android: true

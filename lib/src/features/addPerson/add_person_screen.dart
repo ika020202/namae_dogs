@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:namae_dogs/src/common/namae_dog_text_field_widget.dart';
 import 'package:namae_dogs/src/constants/app_sizes.dart';
-import 'package:namae_dogs/src/features/addPerson/categories_widget.dart';
+import 'package:namae_dogs/src/common/genre_widgets/genres_widget.dart';
 import 'package:namae_dogs/src/localization/string_hardcoded.dart';
 
 class AddPersonScreen extends ConsumerWidget {
@@ -31,7 +31,7 @@ class AddPersonScreen extends ConsumerWidget {
               leadingIcon: Icons.person,
             ),
             gapH16,
-            const Categories()
+            const GenresWidget()
           ],
         ),
       ),

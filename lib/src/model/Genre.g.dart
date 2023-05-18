@@ -1,53 +1,53 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'Category.dart';
+part of 'Genre.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$CategoryCWProxy {
-  Category name(String name);
+abstract class _$GenreCWProxy {
+  Genre name(String name);
 
-  Category image(String image);
+  Genre image(String image);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Category(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Genre(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// Category(...).copyWith(id: 12, name: "My name")
+  /// Genre(...).copyWith(id: 12, name: "My name")
   /// ````
-  Category call({
+  Genre call({
     String? name,
     String? image,
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfCategory.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfCategory.copyWith.fieldName(...)`
-class _$CategoryCWProxyImpl implements _$CategoryCWProxy {
-  const _$CategoryCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfGenre.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfGenre.copyWith.fieldName(...)`
+class _$GenreCWProxyImpl implements _$GenreCWProxy {
+  const _$GenreCWProxyImpl(this._value);
 
-  final Category _value;
-
-  @override
-  Category name(String name) => this(name: name);
+  final Genre _value;
 
   @override
-  Category image(String image) => this(image: image);
+  Genre name(String name) => this(name: name);
+
+  @override
+  Genre image(String image) => this(image: image);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Category(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Genre(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// Category(...).copyWith(id: 12, name: "My name")
+  /// Genre(...).copyWith(id: 12, name: "My name")
   /// ````
-  Category call({
+  Genre call({
     Object? name = const $CopyWithPlaceholder(),
     Object? image = const $CopyWithPlaceholder(),
   }) {
-    return Category(
+    return Genre(
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -60,10 +60,10 @@ class _$CategoryCWProxyImpl implements _$CategoryCWProxy {
   }
 }
 
-extension $CategoryCopyWith on Category {
-  /// Returns a callable class that can be used as follows: `instanceOfCategory.copyWith(...)` or like so:`instanceOfCategory.copyWith.fieldName(...)`.
+extension $GenreCopyWith on Genre {
+  /// Returns a callable class that can be used as follows: `instanceOfGenre.copyWith(...)` or like so:`instanceOfGenre.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$CategoryCWProxy get copyWith => _$CategoryCWProxyImpl(this);
+  _$GenreCWProxy get copyWith => _$GenreCWProxyImpl(this);
 }
 
 // **************************************************************************
@@ -73,13 +73,13 @@ extension $CategoryCopyWith on Category {
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetCategoryCollection on Isar {
-  IsarCollection<Category> get categorys => this.collection();
+extension GetGenreCollection on Isar {
+  IsarCollection<Genre> get genres => this.collection();
 }
 
-const CategorySchema = CollectionSchema(
-  name: r'Category',
-  id: 5751694338128944171,
+const GenreSchema = CollectionSchema(
+  name: r'Genre',
+  id: -453881181692258612,
   properties: {
     r'image': PropertySchema(
       id: 0,
@@ -92,22 +92,22 @@ const CategorySchema = CollectionSchema(
       type: IsarType.string,
     )
   },
-  estimateSize: _categoryEstimateSize,
-  serialize: _categorySerialize,
-  deserialize: _categoryDeserialize,
-  deserializeProp: _categoryDeserializeProp,
+  estimateSize: _genreEstimateSize,
+  serialize: _genreSerialize,
+  deserialize: _genreDeserialize,
+  deserializeProp: _genreDeserializeProp,
   idName: r'id',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _categoryGetId,
-  getLinks: _categoryGetLinks,
-  attach: _categoryAttach,
+  getId: _genreGetId,
+  getLinks: _genreGetLinks,
+  attach: _genreAttach,
   version: '3.1.0+1',
 );
 
-int _categoryEstimateSize(
-  Category object,
+int _genreEstimateSize(
+  Genre object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -117,8 +117,8 @@ int _categoryEstimateSize(
   return bytesCount;
 }
 
-void _categorySerialize(
-  Category object,
+void _genreSerialize(
+  Genre object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -127,20 +127,20 @@ void _categorySerialize(
   writer.writeString(offsets[1], object.name);
 }
 
-Category _categoryDeserialize(
+Genre _genreDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Category(
+  final object = Genre(
     image: reader.readString(offsets[0]),
     name: reader.readString(offsets[1]),
   );
   return object;
 }
 
-P _categoryDeserializeProp<P>(
+P _genreDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -156,26 +156,26 @@ P _categoryDeserializeProp<P>(
   }
 }
 
-Id _categoryGetId(Category object) {
+Id _genreGetId(Genre object) {
   return object.id;
 }
 
-List<IsarLinkBase<dynamic>> _categoryGetLinks(Category object) {
+List<IsarLinkBase<dynamic>> _genreGetLinks(Genre object) {
   return [];
 }
 
-void _categoryAttach(IsarCollection<dynamic> col, Id id, Category object) {}
+void _genreAttach(IsarCollection<dynamic> col, Id id, Genre object) {}
 
-extension CategoryQueryWhereSort on QueryBuilder<Category, Category, QWhere> {
-  QueryBuilder<Category, Category, QAfterWhere> anyId() {
+extension GenreQueryWhereSort on QueryBuilder<Genre, Genre, QWhere> {
+  QueryBuilder<Genre, Genre, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
-  QueryBuilder<Category, Category, QAfterWhereClause> idEqualTo(Id id) {
+extension GenreQueryWhere on QueryBuilder<Genre, Genre, QWhereClause> {
+  QueryBuilder<Genre, Genre, QAfterWhereClause> idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -184,7 +184,7 @@ extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
     });
   }
 
-  QueryBuilder<Category, Category, QAfterWhereClause> idNotEqualTo(Id id) {
+  QueryBuilder<Genre, Genre, QAfterWhereClause> idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -206,7 +206,7 @@ extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
     });
   }
 
-  QueryBuilder<Category, Category, QAfterWhereClause> idGreaterThan(Id id,
+  QueryBuilder<Genre, Genre, QAfterWhereClause> idGreaterThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -215,7 +215,7 @@ extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
     });
   }
 
-  QueryBuilder<Category, Category, QAfterWhereClause> idLessThan(Id id,
+  QueryBuilder<Genre, Genre, QAfterWhereClause> idLessThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -224,7 +224,7 @@ extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
     });
   }
 
-  QueryBuilder<Category, Category, QAfterWhereClause> idBetween(
+  QueryBuilder<Genre, Genre, QAfterWhereClause> idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -241,9 +241,8 @@ extension CategoryQueryWhere on QueryBuilder<Category, Category, QWhereClause> {
   }
 }
 
-extension CategoryQueryFilter
-    on QueryBuilder<Category, Category, QFilterCondition> {
-  QueryBuilder<Category, Category, QAfterFilterCondition> idEqualTo(Id value) {
+extension GenreQueryFilter on QueryBuilder<Genre, Genre, QFilterCondition> {
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -252,7 +251,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> idGreaterThan(
     Id value, {
     bool include = false,
   }) {
@@ -265,7 +264,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> idLessThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> idLessThan(
     Id value, {
     bool include = false,
   }) {
@@ -278,7 +277,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> idBetween(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
@@ -295,7 +294,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageEqualTo(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -308,7 +307,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageGreaterThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -323,7 +322,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageLessThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -338,7 +337,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageBetween(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -357,7 +356,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageStartsWith(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -370,7 +369,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageEndsWith(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -383,8 +382,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageContains(
-      String value,
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageContains(String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -395,8 +393,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageMatches(
-      String pattern,
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageMatches(String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -407,7 +404,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageIsEmpty() {
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'image',
@@ -416,7 +413,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> imageIsNotEmpty() {
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> imageIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'image',
@@ -425,7 +422,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -438,7 +435,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -453,7 +450,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameLessThan(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -468,7 +465,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameBetween(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -487,7 +484,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -500,7 +497,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -513,8 +510,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameContains(
-      String value,
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameContains(String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -525,8 +521,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameMatches(
-      String pattern,
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameMatches(String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -537,7 +532,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -546,7 +541,7 @@ extension CategoryQueryFilter
     });
   }
 
-  QueryBuilder<Category, Category, QAfterFilterCondition> nameIsNotEmpty() {
+  QueryBuilder<Genre, Genre, QAfterFilterCondition> nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -556,87 +551,83 @@ extension CategoryQueryFilter
   }
 }
 
-extension CategoryQueryObject
-    on QueryBuilder<Category, Category, QFilterCondition> {}
+extension GenreQueryObject on QueryBuilder<Genre, Genre, QFilterCondition> {}
 
-extension CategoryQueryLinks
-    on QueryBuilder<Category, Category, QFilterCondition> {}
+extension GenreQueryLinks on QueryBuilder<Genre, Genre, QFilterCondition> {}
 
-extension CategoryQuerySortBy on QueryBuilder<Category, Category, QSortBy> {
-  QueryBuilder<Category, Category, QAfterSortBy> sortByImage() {
+extension GenreQuerySortBy on QueryBuilder<Genre, Genre, QSortBy> {
+  QueryBuilder<Genre, Genre, QAfterSortBy> sortByImage() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'image', Sort.asc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> sortByImageDesc() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> sortByImageDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'image', Sort.desc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> sortByName() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> sortByNameDesc() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> sortByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 }
 
-extension CategoryQuerySortThenBy
-    on QueryBuilder<Category, Category, QSortThenBy> {
-  QueryBuilder<Category, Category, QAfterSortBy> thenById() {
+extension GenreQuerySortThenBy on QueryBuilder<Genre, Genre, QSortThenBy> {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> thenByImage() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenByImage() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'image', Sort.asc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> thenByImageDesc() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenByImageDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'image', Sort.desc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> thenByName() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<Category, Category, QAfterSortBy> thenByNameDesc() {
+  QueryBuilder<Genre, Genre, QAfterSortBy> thenByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 }
 
-extension CategoryQueryWhereDistinct
-    on QueryBuilder<Category, Category, QDistinct> {
-  QueryBuilder<Category, Category, QDistinct> distinctByImage(
+extension GenreQueryWhereDistinct on QueryBuilder<Genre, Genre, QDistinct> {
+  QueryBuilder<Genre, Genre, QDistinct> distinctByImage(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'image', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<Category, Category, QDistinct> distinctByName(
+  QueryBuilder<Genre, Genre, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
@@ -644,21 +635,20 @@ extension CategoryQueryWhereDistinct
   }
 }
 
-extension CategoryQueryProperty
-    on QueryBuilder<Category, Category, QQueryProperty> {
-  QueryBuilder<Category, int, QQueryOperations> idProperty() {
+extension GenreQueryProperty on QueryBuilder<Genre, Genre, QQueryProperty> {
+  QueryBuilder<Genre, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<Category, String, QQueryOperations> imageProperty() {
+  QueryBuilder<Genre, String, QQueryOperations> imageProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'image');
     });
   }
 
-  QueryBuilder<Category, String, QQueryOperations> nameProperty() {
+  QueryBuilder<Genre, String, QQueryOperations> nameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'name');
     });
