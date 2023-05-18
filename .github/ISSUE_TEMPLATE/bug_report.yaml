@@ -1,0 +1,41 @@
+name: バグ報告
+description: バグ報告のテンプレート
+title: "[Bug]: "
+labels: ["Problem: bug"]
+assignees:
+  - octocat
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 何が起きたか
+      description: できるだけ細かく詳しく書いてください
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      description: iOS/Android?
+      options:
+        - iOS/Android
+        - iOS
+        - Android
+        - Others
+    validations:
+      required: true
+  - type: textarea
+    id: redo
+    attributes:
+      label: 再現手順
+      description: 再現手順と再現性（どれくらいの頻度か）を教えてください
+      validations:
+        required: true
+  - type: textarea
+    id: remarks
+    attributes:
+      label: 備考欄
+      description: 補足情報やその他の情報を書いてください
+      validations:
+        required: false
+    
